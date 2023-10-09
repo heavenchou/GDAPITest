@@ -109,7 +109,8 @@ namespace GDAPITest
                 // 'root' in parents 會列出根目錄檔案
                 // not 'root' in parents 會列出所有非根目錄檔案
                 // '{id}' in parents 則會列出指定目錄下的檔案
-                listRequest.Q = "name contains 'CBETA' and trashed = true";//request + " in parents"; 
+                // name contains 'CBETA' and trashed = true 會列出檔名包含 CBETA 且在垃圾桶中
+                listRequest.Q = request + " in parents"; 
                 // nextPageToken 應該是要傳回下一頁用的，此處沒處理。
                 listRequest.Fields = "nextPageToken, files(id, name)";  
                 FileList files = listRequest.Execute();
